@@ -1,6 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/*
+  Fonts are self-hosted via next/font/google in app/layout.tsx (no
+  render-blocking Google Fonts request / no flash of unstyled text).
+  It exposes the loaded families as CSS variables (--font-inter,
+  --font-dm-serif-display, --font-jetbrains-mono), which inline styles
+  throughout the app reference directly.
+*/
 
 :root {
   --forest:    #0A2118;
@@ -20,7 +26,7 @@
 }
 
 html, body { height: 100%; }
-body { background: var(--ivory); font-family: 'Inter', sans-serif; color: var(--forest); -webkit-font-smoothing: antialiased; }
+body { background: var(--ivory); font-family: var(--font-inter), sans-serif; color: var(--forest); -webkit-font-smoothing: antialiased; }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }

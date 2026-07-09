@@ -37,11 +37,11 @@ export function Sidebar({ businessName }: { businessName: string }) {
           }}>
             <span style={{
               color: C.forest, fontWeight: 800, fontSize: 17,
-              fontFamily: "'DM Serif Display',serif"
+              fontFamily: "var(--font-dm-serif-display),serif"
             }}>F</span>
           </div>
           <span style={{
-            color: C.white, fontFamily: "'DM Serif Display',serif",
+            color: C.white, fontFamily: "var(--font-dm-serif-display),serif",
             fontSize: 20, letterSpacing: '-0.01em'
           }}>FlowPilot</span>
         </div>
@@ -50,11 +50,11 @@ export function Sidebar({ businessName }: { businessName: string }) {
       {/* Business name */}
       <div style={{ padding: '14px 22px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
         <div style={{
-          fontSize: 10, color: C.sage, fontFamily: 'Inter,sans-serif', marginBottom: 3,
+          fontSize: 10, color: C.sage, fontFamily: 'var(--font-inter),sans-serif', marginBottom: 3,
           letterSpacing: '0.08em', fontWeight: 600, textTransform: 'uppercase'
         }}>Business</div>
         <div style={{
-          fontSize: 13, color: 'rgba(255,255,255,0.8)', fontFamily: 'Inter,sans-serif',
+          fontSize: 13, color: 'rgba(255,255,255,0.8)', fontFamily: 'var(--font-inter),sans-serif',
           fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'
         }}>
           {businessName}
@@ -78,7 +78,7 @@ export function Sidebar({ businessName }: { businessName: string }) {
                   textAlign: 'center'
                 }}>{item.icon}</span>
                 <span style={{
-                  fontFamily: 'Inter,sans-serif', fontSize: 13.5,
+                  fontFamily: 'var(--font-inter),sans-serif', fontSize: 13.5,
                   fontWeight: active ? 600 : 400, color: active ? C.white : C.sage
                 }}>{item.label}</span>
               </div>
@@ -91,7 +91,7 @@ export function Sidebar({ businessName }: { businessName: string }) {
       <div style={{ padding: '14px 22px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <button onClick={handleLogout} style={{
           background: 'none', border: 'none', cursor: 'pointer',
-          color: C.sage, fontFamily: 'Inter,sans-serif', fontSize: 12, fontWeight: 500
+          color: C.sage, fontFamily: 'var(--font-inter),sans-serif', fontSize: 12, fontWeight: 500
         }}>
           Sign out →
         </button>

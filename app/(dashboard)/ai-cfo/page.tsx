@@ -48,8 +48,8 @@ export default function AICFOPage() {
   return (
     <div className="fade-in" style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 72px)' }}>
       <div style={{ marginBottom: 20 }}>
-        <div style={{ fontSize: 24, fontFamily: "'DM Serif Display',serif", color: C.forest, marginBottom: 4 }}>AI CFO</div>
-        <div style={{ fontSize: 13, color: C.sage, fontFamily: 'Inter,sans-serif' }}>
+        <div style={{ fontSize: 24, fontFamily: "var(--font-dm-serif-display),serif", color: C.forest, marginBottom: 4 }}>AI CFO</div>
+        <div style={{ fontSize: 13, color: C.sage, fontFamily: 'var(--font-inter),sans-serif' }}>
           Your financial advisor, powered by live business data
         </div>
       </div>
@@ -70,7 +70,7 @@ export default function AICFOPage() {
               borderRadius: m.role === 'user' ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
               background: m.role === 'user' ? C.forest : C.ivory,
               color: m.role === 'user' ? 'white' : C.forest,
-              fontFamily: 'Inter,sans-serif', fontSize: 14, lineHeight: 1.7,
+              fontFamily: 'var(--font-inter),sans-serif', fontSize: 14, lineHeight: 1.7,
               whiteSpace: 'pre-wrap' }}>
               {m.text}
             </div>
@@ -83,7 +83,7 @@ export default function AICFOPage() {
               <span style={{ color: C.gold, fontSize: 14 }}>✦</span>
             </div>
             <div style={{ background: C.ivory, padding: '13px 18px', borderRadius: '18px 18px 18px 4px',
-              fontFamily: 'Inter,sans-serif', fontSize: 14, color: C.sage,
+              fontFamily: 'var(--font-inter),sans-serif', fontSize: 14, color: C.sage,
               display: 'flex', alignItems: 'center', gap: 10 }}>
               <Spinner size={14} /> Analysing your financial data…
             </div>
@@ -98,7 +98,7 @@ export default function AICFOPage() {
           {SUGGESTED.map(s => (
             <button key={s} onClick={() => send(s)} style={{ padding: '8px 15px', borderRadius: 20,
               border: `1.5px solid ${C.border}`, background: 'white',
-              fontFamily: 'Inter,sans-serif', fontSize: 12, color: C.forest,
+              fontFamily: 'var(--font-inter),sans-serif', fontSize: 12, color: C.forest,
               cursor: 'pointer', fontWeight: 500, transition: 'border-color 0.15s' }}>
               {s}
             </button>
@@ -112,7 +112,7 @@ export default function AICFOPage() {
           onKeyDown={e => e.key === 'Enter' && !e.shiftKey && send()}
           placeholder="Ask your CFO anything about your finances…"
           style={{ flex: 1, padding: '14px 18px', borderRadius: 12,
-            border: `1.5px solid ${C.border}`, fontFamily: 'Inter,sans-serif',
+            border: `1.5px solid ${C.border}`, fontFamily: 'var(--font-inter),sans-serif',
             fontSize: 14, color: C.forest, outline: 'none', background: 'white',
             transition: 'border-color 0.15s' }} />
         <Btn onClick={() => send()} disabled={loading || !input.trim()}

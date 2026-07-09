@@ -81,8 +81,8 @@ export function InvoicesClient({ invoices, businessId }: Props) {
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 26 }}>
         <div>
-          <div style={{ fontSize: 24, fontFamily: "'DM Serif Display',serif", color: C.forest, marginBottom: 4 }}>Invoices</div>
-          <div style={{ fontSize: 13, color: C.sage, fontFamily: 'Inter,sans-serif' }}>Track and collect customer payments</div>
+          <div style={{ fontSize: 24, fontFamily: "var(--font-dm-serif-display),serif", color: C.forest, marginBottom: 4 }}>Invoices</div>
+          <div style={{ fontSize: 13, color: C.sage, fontFamily: 'var(--font-inter),sans-serif' }}>Track and collect customer payments</div>
         </div>
         <Btn onClick={() => setShowCreate(true)}>+ Create Invoice</Btn>
       </div>
@@ -92,7 +92,7 @@ export function InvoicesClient({ invoices, businessId }: Props) {
         padding: 5, borderRadius: 12, width: 'fit-content', boxShadow: '0 1px 4px rgba(0,0,0,0.05)' }}>
         {tabs.map(t => (
           <button key={t} onClick={() => setFilter(t)} style={{ padding: '8px 18px', borderRadius: 9,
-            border: 'none', cursor: 'pointer', fontFamily: 'Inter,sans-serif', fontSize: 13,
+            border: 'none', cursor: 'pointer', fontFamily: 'var(--font-inter),sans-serif', fontSize: 13,
             fontWeight: filter === t ? 600 : 400,
             background: filter === t ? C.forest : 'transparent',
             color: filter === t ? C.white : C.sage, transition: 'all 0.12s ease' }}>
@@ -113,20 +113,20 @@ export function InvoicesClient({ invoices, businessId }: Props) {
               <div style={{ display: 'flex', alignItems: 'center', gap: 15 }}>
                 <div style={{ width: 42, height: 42, borderRadius: 11, background: C.ivory,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: 15, fontWeight: 700, color: C.forest, fontFamily: "'DM Serif Display',serif" }}>
+                  fontSize: 15, fontWeight: 700, color: C.forest, fontFamily: "var(--font-dm-serif-display),serif" }}>
                   {inv.customer_name[0]?.toUpperCase()}
                 </div>
                 <div>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: C.forest, fontFamily: 'Inter,sans-serif', marginBottom: 2 }}>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: C.forest, fontFamily: 'var(--font-inter),sans-serif', marginBottom: 2 }}>
                     {inv.customer_name}
                   </div>
-                  <div style={{ fontSize: 12, color: C.sage, fontFamily: 'Inter,sans-serif' }}>
+                  <div style={{ fontSize: 12, color: C.sage, fontFamily: 'var(--font-inter),sans-serif' }}>
                     {inv.description || '—'} · {inv.due_date ? `Due ${formatShortDate(inv.due_date)}` : 'No due date'}
                   </div>
                 </div>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                <div style={{ fontSize: 15, fontWeight: 600, fontFamily: "'JetBrains Mono',monospace", color: C.forest }}>
+                <div style={{ fontSize: 15, fontWeight: 600, fontFamily: "var(--font-jetbrains-mono),monospace", color: C.forest }}>
                   {fmt(inv.amount)}
                 </div>
                 <Badge status={inv.status} />
@@ -160,7 +160,7 @@ export function InvoicesClient({ invoices, businessId }: Props) {
         <Field label="Due Date" type="date"
           value={form.due_date} onChange={e => setForm(p => ({ ...p, due_date: e.target.value }))} />
         <div style={{ marginBottom: 26 }}>
-          <label style={{ fontSize: 11, fontWeight: 700, color: C.sage, fontFamily: 'Inter,sans-serif',
+          <label style={{ fontSize: 11, fontWeight: 700, color: C.sage, fontFamily: 'var(--font-inter),sans-serif',
             letterSpacing: '0.07em', display: 'block', marginBottom: 9, textTransform: 'uppercase' }}>Payment Link</label>
           <div style={{ display: 'flex', gap: 10 }}>
             {[{ label: 'One-time', val: false }, { label: 'Reusable', val: true }].map(opt => (
@@ -168,7 +168,7 @@ export function InvoicesClient({ invoices, businessId }: Props) {
                 flex: 1, padding: '11px', borderRadius: 11, cursor: 'pointer',
                 border: form.reusable === opt.val ? `2px solid ${C.gold}` : `1.5px solid ${C.border}`,
                 background: form.reusable === opt.val ? `${C.gold}14` : 'transparent',
-                fontFamily: 'Inter,sans-serif', fontSize: 13,
+                fontFamily: 'var(--font-inter),sans-serif', fontSize: 13,
                 color: form.reusable === opt.val ? C.forest : C.sage,
                 fontWeight: form.reusable === opt.val ? 700 : 400
               }}>{opt.label}</button>

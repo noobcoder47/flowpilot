@@ -30,8 +30,8 @@ export default async function PaymentsPage() {
   return (
     <div className="fade-in">
       <div style={{ marginBottom: 28 }}>
-        <div style={{ fontSize: 24, fontFamily: "'DM Serif Display',serif", color: C.forest, marginBottom: 4 }}>Payments</div>
-        <div style={{ fontSize: 13, color: C.sage, fontFamily: 'Inter,sans-serif' }}>All incoming payments to your account</div>
+        <div style={{ fontSize: 24, fontFamily: "var(--font-dm-serif-display),serif", color: C.forest, marginBottom: 4 }}>Payments</div>
+        <div style={{ fontSize: 13, color: C.sage, fontFamily: 'var(--font-inter),sans-serif' }}>All incoming payments to your account</div>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 14, marginBottom: 22 }}>
@@ -49,7 +49,7 @@ export default async function PaymentsPage() {
               <tr style={{ borderBottom: `1px solid ${C.border}` }}>
                 {['Customer / Description', 'Amount', 'Reference', 'Status', 'Date'].map(h => (
                   <th key={h} style={{ textAlign: 'left', padding: '0 0 12px', fontSize: 11,
-                    color: C.sage, fontFamily: 'Inter,sans-serif', fontWeight: 600,
+                    color: C.sage, fontFamily: 'var(--font-inter),sans-serif', fontWeight: 600,
                     letterSpacing: '0.07em', textTransform: 'uppercase' }}>{h}</th>
                 ))}
               </tr>
@@ -58,14 +58,14 @@ export default async function PaymentsPage() {
               {txs.map((tx, i) => (
                 <tr key={tx.id} style={{ borderBottom: i < txs.length - 1 ? `1px solid ${C.border}` : 'none' }}>
                   <td style={{ padding: '14px 0', fontSize: 14, color: C.forest,
-                    fontFamily: 'Inter,sans-serif', fontWeight: 500 }}>{tx.description || '—'}</td>
-                  <td style={{ padding: '14px 0', fontSize: 14, fontFamily: "'JetBrains Mono',monospace",
+                    fontFamily: 'var(--font-inter),sans-serif', fontWeight: 500 }}>{tx.description || '—'}</td>
+                  <td style={{ padding: '14px 0', fontSize: 14, fontFamily: "var(--font-jetbrains-mono),monospace",
                     color: C.green, fontWeight: 600 }}>+{fmt(Number(tx.amount))}</td>
                   <td style={{ padding: '14px 0', fontSize: 11, color: C.sage,
-                    fontFamily: "'JetBrains Mono',monospace" }}>{tx.moolre_ref || '—'}</td>
+                    fontFamily: "var(--font-jetbrains-mono),monospace" }}>{tx.moolre_ref || '—'}</td>
                   <td style={{ padding: '14px 0' }}><Badge status={tx.status} /></td>
                   <td style={{ padding: '14px 0', fontSize: 13, color: C.sage,
-                    fontFamily: 'Inter,sans-serif' }}>{formatShortDate(tx.created_at)}</td>
+                    fontFamily: 'var(--font-inter),sans-serif' }}>{formatShortDate(tx.created_at)}</td>
                 </tr>
               ))}
             </tbody>

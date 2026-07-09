@@ -22,9 +22,9 @@ export function HealthRing({ score }: { score: number }) {
         transform={`rotate(135,${cx},${cy})`}
         style={{ transition: 'stroke-dasharray 1.2s cubic-bezier(.4,0,.2,1)' }} />
       <text x={cx} y={cy - 8} textAnchor="middle" fill={C.forest}
-        style={{ fontFamily: "'DM Serif Display',serif", fontSize: '44px' }}>{score}</text>
+        style={{ fontFamily: "var(--font-dm-serif-display),serif", fontSize: '44px' }}>{score}</text>
       <text x={cx} y={cy + 20} textAnchor="middle" fill={C.sage}
-        style={{ fontFamily: 'Inter,sans-serif', fontSize: '10px', letterSpacing: '0.1em', fontWeight: 600 }}>HEALTH</text>
+        style={{ fontFamily: 'var(--font-inter),sans-serif', fontSize: '10px', letterSpacing: '0.1em', fontWeight: 600 }}>HEALTH</text>
     </svg>
   )
 }
@@ -42,7 +42,7 @@ export function Badge({ status }: { status: string }) {
   return (
     <span style={{
       background: s.bg, color: s.color, fontSize: 11, fontWeight: 700,
-      padding: '3px 11px', borderRadius: 20, fontFamily: 'Inter,sans-serif',
+      padding: '3px 11px', borderRadius: 20, fontFamily: 'var(--font-inter),sans-serif',
       letterSpacing: '0.04em', whiteSpace: 'nowrap'
     }}>{s.label}</span>
   )
@@ -56,7 +56,7 @@ interface BtnProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export function Btn({ children, variant = 'gold', loading, disabled, style, ...rest }: BtnProps) {
   const base: React.CSSProperties = {
     display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-    padding: '11px 20px', borderRadius: 10, fontFamily: 'Inter,sans-serif',
+    padding: '11px 20px', borderRadius: 10, fontFamily: 'var(--font-inter),sans-serif',
     fontWeight: 600, fontSize: 14, cursor: disabled || loading ? 'not-allowed' : 'pointer',
     transition: 'opacity 0.15s', opacity: disabled || loading ? 0.6 : 1, border: 'none',
   }
@@ -79,12 +79,12 @@ export function Field({ label, ...props }: FieldProps) {
   return (
     <div style={{ marginBottom: 18 }}>
       <label style={{
-        fontSize: 11, fontWeight: 700, color: C.sage, fontFamily: 'Inter,sans-serif',
+        fontSize: 11, fontWeight: 700, color: C.sage, fontFamily: 'var(--font-inter),sans-serif',
         letterSpacing: '0.07em', display: 'block', marginBottom: 7, textTransform: 'uppercase'
       }}>{label}</label>
       <input {...props} style={{
         width: '100%', padding: '12px 15px', borderRadius: 10,
-        border: `1.5px solid ${C.border}`, fontFamily: 'Inter,sans-serif', fontSize: 14,
+        border: `1.5px solid ${C.border}`, fontFamily: 'var(--font-inter),sans-serif', fontSize: 14,
         color: C.forest, background: C.ivory, boxSizing: 'border-box', transition: 'border-color 0.15s', ...props.style
       }} />
     </div>
@@ -116,7 +116,7 @@ export function PageLoading() {
   return (
     <div style={{
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      height: '60vh', gap: 12, color: C.sage, fontFamily: 'Inter,sans-serif', fontSize: 14
+      height: '60vh', gap: 12, color: C.sage, fontFamily: 'var(--font-inter),sans-serif', fontSize: 14
     }}>
       <Spinner /> Loading…
     </div>
@@ -128,7 +128,7 @@ export function ErrorState({ message }: { message: string }) {
   return (
     <div style={{
       background: '#FDECEA', border: `1px solid #FECACA`, borderRadius: 12,
-      padding: '16px 20px', color: '#991B1B', fontFamily: 'Inter,sans-serif', fontSize: 14
+      padding: '16px 20px', color: '#991B1B', fontFamily: 'var(--font-inter),sans-serif', fontSize: 14
     }}>
       ⚠ {message}
     </div>
@@ -140,7 +140,7 @@ export function EmptyState({ title, sub }: { title: string; sub?: string }) {
   return (
     <div style={{
       textAlign: 'center', padding: '60px 0', color: C.sage,
-      fontFamily: 'Inter,sans-serif'
+      fontFamily: 'var(--font-inter),sans-serif'
     }}>
       <div style={{ fontSize: 36, marginBottom: 12 }}>○</div>
       <div style={{ fontSize: 15, fontWeight: 600, color: C.forest, marginBottom: 6 }}>{title}</div>
@@ -156,7 +156,7 @@ export function Toast({ message, type = 'success', onClose }: { message: string;
     <div className="fade-in" style={{
       position: 'fixed', top: 24, right: 24, zIndex: 200,
       background: type === 'error' ? C.redText : C.forest, color: C.white,
-      padding: '13px 22px', borderRadius: 12, fontFamily: 'Inter,sans-serif',
+      padding: '13px 22px', borderRadius: 12, fontFamily: 'var(--font-inter),sans-serif',
       fontSize: 14, fontWeight: 500, boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
       display: 'flex', alignItems: 'center', gap: 10, maxWidth: 360
     }}>
@@ -183,7 +183,7 @@ export function Drawer({ open, onClose, title, children }: {
         overflowY: 'auto', padding: 32, boxShadow: '-6px 0 32px rgba(0,0,0,0.14)'
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 28 }}>
-          <div style={{ fontSize: 21, fontFamily: "'DM Serif Display',serif", color: C.forest }}>{title}</div>
+          <div style={{ fontSize: 21, fontFamily: "var(--font-dm-serif-display),serif", color: C.forest }}>{title}</div>
           <button onClick={onClose} style={{
             background: 'none', border: 'none',
             fontSize: 20, color: C.sage, cursor: 'pointer', lineHeight: 1
@@ -202,14 +202,14 @@ export function StatCard({ label, value, sub, mono = true }: {
   return (
     <Card>
       <div style={{
-        fontSize: 11, color: C.sage, fontFamily: 'Inter,sans-serif',
+        fontSize: 11, color: C.sage, fontFamily: 'var(--font-inter),sans-serif',
         fontWeight: 600, letterSpacing: '0.06em', marginBottom: 10, textTransform: 'uppercase'
       }}>{label}</div>
       <div style={{
         fontSize: 22, fontWeight: 600, color: C.forest, marginBottom: 5,
-        fontFamily: mono ? "'JetBrains Mono',monospace" : "'DM Serif Display',serif"
+        fontFamily: mono ? "var(--font-jetbrains-mono),monospace" : "var(--font-dm-serif-display),serif"
       }}>{value}</div>
-      {sub && <div style={{ fontSize: 12, color: C.sage, fontFamily: 'Inter,sans-serif' }}>{sub}</div>}
+      {sub && <div style={{ fontSize: 12, color: C.sage, fontFamily: 'var(--font-inter),sans-serif' }}>{sub}</div>}
     </Card>
   )
 }

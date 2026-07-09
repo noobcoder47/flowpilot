@@ -83,8 +83,8 @@ export function PayoutsClient({ disbursements, businessId }: Props) {
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 28 }}>
         <div>
-          <div style={{ fontSize: 24, fontFamily: "'DM Serif Display',serif", color: C.forest, marginBottom: 4 }}>Payouts</div>
-          <div style={{ fontSize: 13, color: C.sage, fontFamily: 'Inter,sans-serif' }}>Pay staff and suppliers instantly</div>
+          <div style={{ fontSize: 24, fontFamily: "var(--font-dm-serif-display),serif", color: C.forest, marginBottom: 4 }}>Payouts</div>
+          <div style={{ fontSize: 13, color: C.sage, fontFamily: 'var(--font-inter),sans-serif' }}>Pay staff and suppliers instantly</div>
         </div>
         <Btn onClick={() => { setShowDrawer(true); setStage('form') }}>+ New Payout</Btn>
       </div>
@@ -113,15 +113,15 @@ export function PayoutsClient({ disbursements, businessId }: Props) {
                   fontSize: 18, color: C.sage }}>↗</div>
                 <div>
                   <div style={{ fontSize: 14, fontWeight: 600, color: C.forest,
-                    fontFamily: 'Inter,sans-serif', marginBottom: 3 }}>{d.recipient_name}</div>
-                  <div style={{ fontSize: 12, color: C.sage, fontFamily: 'Inter,sans-serif' }}>
+                    fontFamily: 'var(--font-inter),sans-serif', marginBottom: 3 }}>{d.recipient_name}</div>
+                  <div style={{ fontSize: 12, color: C.sage, fontFamily: 'var(--font-inter),sans-serif' }}>
                     {d.phone} · {d.network} · {formatShortDate(d.created_at)}
                   </div>
                 </div>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
                 <div style={{ fontSize: 15, fontWeight: 600,
-                  fontFamily: "'JetBrains Mono',monospace", color: C.red }}>
+                  fontFamily: "var(--font-jetbrains-mono),monospace", color: C.red }}>
                   −{fmt(Number(d.amount))}
                 </div>
                 <Badge status={d.status} />
@@ -142,7 +142,7 @@ export function PayoutsClient({ disbursements, businessId }: Props) {
 
         {/* Network selector */}
         <div style={{ marginBottom: 26 }}>
-          <label style={{ fontSize: 11, fontWeight: 700, color: C.sage, fontFamily: 'Inter,sans-serif',
+          <label style={{ fontSize: 11, fontWeight: 700, color: C.sage, fontFamily: 'var(--font-inter),sans-serif',
             letterSpacing: '0.07em', display: 'block', marginBottom: 9, textTransform: 'uppercase' }}>Network</label>
           <div style={{ display: 'flex', gap: 8 }}>
             {NETWORKS.map(n => (
@@ -150,7 +150,7 @@ export function PayoutsClient({ disbursements, businessId }: Props) {
                 style={{ flex: 1, padding: '10px 6px', borderRadius: 10, cursor: 'pointer',
                   border: form.network === n ? `2px solid ${C.gold}` : `1.5px solid ${C.border}`,
                   background: form.network === n ? `${C.gold}14` : 'transparent',
-                  fontFamily: 'Inter,sans-serif', fontSize: 12,
+                  fontFamily: 'var(--font-inter),sans-serif', fontSize: 12,
                   color: form.network === n ? C.forest : C.sage,
                   fontWeight: form.network === n ? 700 : 400 }}>{n}</button>
             ))}
@@ -169,11 +169,11 @@ export function PayoutsClient({ disbursements, businessId }: Props) {
           <>
             <div style={{ background: C.mint, border: '1.5px solid #BBF7D0', borderRadius: 12,
               padding: '15px 20px', marginBottom: 20 }}>
-              <div style={{ fontSize: 11, color: C.mintText, fontFamily: 'Inter,sans-serif',
+              <div style={{ fontSize: 11, color: C.mintText, fontFamily: 'var(--font-inter),sans-serif',
                 fontWeight: 700, letterSpacing: '0.06em', marginBottom: 5, textTransform: 'uppercase' }}>
                 Verified Recipient
               </div>
-              <div style={{ fontSize: 15, color: C.mintText, fontFamily: "'JetBrains Mono',monospace", fontWeight: 700 }}>
+              <div style={{ fontSize: 15, color: C.mintText, fontFamily: "var(--font-jetbrains-mono),monospace", fontWeight: 700 }}>
                 {verifiedName} ✓
               </div>
             </div>

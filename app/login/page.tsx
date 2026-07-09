@@ -55,7 +55,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', fontFamily: 'Inter,sans-serif' }}>
+    <div style={{ display: 'flex', minHeight: '100vh', fontFamily: 'var(--font-inter),sans-serif' }}>
       {/* Left panel */}
       <div style={{ width: '44%', background: C.forest, display: 'flex', flexDirection: 'column',
         justifyContent: 'center', padding: '60px 62px', position: 'relative', overflow: 'hidden' }}>
@@ -63,11 +63,11 @@ export default function LoginPage() {
           <div style={{ width: 36, height: 36, background: C.gold, borderRadius: 10,
             display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <span style={{ color: C.forest, fontWeight: 800, fontSize: 19,
-              fontFamily: "'DM Serif Display',serif" }}>F</span>
+              fontFamily: "var(--font-dm-serif-display),serif" }}>F</span>
           </div>
-          <span style={{ color: 'white', fontFamily: "'DM Serif Display',serif", fontSize: 22 }}>FlowPilot</span>
+          <span style={{ color: 'white', fontFamily: "var(--font-dm-serif-display),serif", fontSize: 22 }}>FlowPilot</span>
         </div>
-        <div style={{ fontFamily: "'DM Serif Display',serif", fontSize: 40, color: 'white',
+        <div style={{ fontFamily: "var(--font-dm-serif-display),serif", fontSize: 40, color: 'white',
           lineHeight: 1.22, fontStyle: 'italic', marginBottom: 24 }}>
           "Your business finances. Finally under control."
         </div>
@@ -90,7 +90,7 @@ export default function LoginPage() {
             {(['login', 'register'] as const).map(m => (
               <button key={m} onClick={() => { setMode(m); setError('') }} style={{
                 flex: 1, padding: '10px', borderRadius: 9, border: 'none', cursor: 'pointer',
-                fontFamily: 'Inter,sans-serif', fontSize: 13, fontWeight: mode === m ? 600 : 400,
+                fontFamily: 'var(--font-inter),sans-serif', fontSize: 13, fontWeight: mode === m ? 600 : 400,
                 background: mode === m ? C.forest : 'transparent',
                 color: mode === m ? 'white' : C.sage, transition: 'all 0.12s ease' }}>
                 {m === 'login' ? 'Sign In' : 'Create Account'}
@@ -98,7 +98,7 @@ export default function LoginPage() {
             ))}
           </div>
 
-          <div style={{ fontSize: 28, fontFamily: "'DM Serif Display',serif", color: C.forest, marginBottom: 7 }}>
+          <div style={{ fontSize: 28, fontFamily: "var(--font-dm-serif-display),serif", color: C.forest, marginBottom: 7 }}>
             {mode === 'login' ? 'Welcome back' : 'Get started'}
           </div>
           <div style={{ fontSize: 14, color: C.sage, marginBottom: 28 }}>
@@ -107,7 +107,7 @@ export default function LoginPage() {
 
           {error && (
             <div style={{ background: C.softRed, border: `1px solid #FECACA`, borderRadius: 10,
-              padding: '12px 16px', color: C.redText, fontFamily: 'Inter,sans-serif',
+              padding: '12px 16px', color: C.redText, fontFamily: 'var(--font-inter),sans-serif',
               fontSize: 13, marginBottom: 20 }}>⚠ {error}</div>
           )}
 
