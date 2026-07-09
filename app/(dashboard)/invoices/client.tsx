@@ -16,6 +16,7 @@ export function InvoicesClient({ invoices, businessId }: Props) {
   const [showCreate, setShowCreate] = useState(false)
   const [toast, setToast] = useState<{ msg: string; type: 'success' | 'error' } | null>(null)
   const [loading, setLoading] = useState(false)
+  const [remindingId, setRemindingId] = useState<string | null>(null)
   const [form, setForm] = useState({
     customer_name: '', customer_phone: '', description: '', amount: '', due_date: '', reusable: false
   })
@@ -48,6 +49,9 @@ export function InvoicesClient({ invoices, businessId }: Props) {
 
   const handleRemind = async (inv: Invoice) => {
     if (!inv.customer_phone) return showToast('No phone number for this customer', 'error')
+    if (remindingId) return
+    if (!window.confirm(`Send a payment reminder SMS to ${inv.customer_name} (${inv.customer_phone})?`)) return
+    setRemindingId(inv.id)
     try {
       const res = await fetch('/api/moolre/send-sms', {
         method: 'POST',
@@ -61,6 +65,8 @@ export function InvoicesClient({ invoices, businessId }: Props) {
       showToast(`Reminder sent to ${inv.customer_name}`)
     } catch (e: any) {
       showToast(e.message, 'error')
+    } finally {
+      setRemindingId(null)
     }
   }
 
@@ -126,7 +132,8 @@ export function InvoicesClient({ invoices, businessId }: Props) {
                 <Badge status={inv.status} />
                 {inv.status !== 'paid' && (
                   <div style={{ display: 'flex', gap: 8 }}>
-                    <Btn variant="outline" onClick={() => handleRemind(inv)}
+                    <Btn variant="outline" loading={remindingId === inv.id} disabled={remindingId !== null}
+                      onClick={() => handleRemind(inv)}
                       style={{ padding: '6px 13px', fontSize: 12 }}>Remind</Btn>
                     {inv.payment_link && (
                       <Btn variant="ghost" onClick={() => handleCopyLink(inv.payment_link!)}

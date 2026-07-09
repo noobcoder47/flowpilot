@@ -97,8 +97,12 @@ LIVE BUSINESS DATA:
 ${context}`
 
     const model = genAI.getGenerativeModel({
-      model: 'gemini-flash-latest',
+      model: 'gemini-2.5-flash',
       systemInstruction: systemPrompt,
+      generationConfig: {
+        temperature: 0.4,
+        maxOutputTokens: 250,
+      },
     })
 
     // Map messages for Gemini: split into history + last user message
